@@ -21,12 +21,12 @@ public class BeerController {
     private final BeerService beerService;
 
     public BeerController(BeerService beerService) {
+
         this.beerService = beerService;
     }
 
     @GetMapping({"/{beerId}"})
     public ResponseEntity<BeerDto> getBeer(@PathVariable("beerId") UUID beerId){
-
         return new ResponseEntity<>(beerService.getBeerById(beerId), HttpStatus.OK);
     }
 
